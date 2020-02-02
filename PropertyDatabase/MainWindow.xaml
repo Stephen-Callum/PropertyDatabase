@@ -1,0 +1,76 @@
+﻿<Window x:Class="PropertyDatabase.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PropertyDatabase"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1000">
+    <Grid Background="#0DFFAA">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label x:Name="LabelHeading" Content="Greener Pastures" 
+               Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" 
+               HorizontalContentAlignment="Center" 
+               VerticalContentAlignment="Center" FontSize="35" 
+               Background="#0CE85C" Foreground="#425000" FontWeight="SemiBold" />
+        <ListBox x:Name="ListBoxProperty" Background="#0DFFAA" 
+                 Grid.Row="4" Grid.Column="0" Grid.RowSpan="3" 
+                 Grid.ColumnSpan="3"/>
+        <ListView x:Name="ListViewPropertyListings" Grid.Row="4" Grid.Column="3" 
+                  Grid.ColumnSpan="4" Grid.RowSpan="3"
+                  Background="#0CE85C" 
+                  SelectionChanged="ListViewPropertyListings_SelectionChanged"
+                  MouseRightButtonUp="ListViewPropertyListings_MouseRightButtonUp">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Listing ID" Width="60" DisplayMemberBinding="{Binding ListingID}" />
+                    <GridViewColumn Header="Address" Width="150" DisplayMemberBinding="{Binding ListingAddress}" />
+                    <GridViewColumn Header="Price" Width="80" DisplayMemberBinding="{Binding ListingPrice}" />
+                    <GridViewColumn Header="No. Beds" Width="60" DisplayMemberBinding="{Binding NumBedrooms}" />
+                    <GridViewColumn Header="Is Available?" Width="70" DisplayMemberBinding="{Binding IsAvailable}" />
+                    <GridViewColumn Header="Date Listed" Width="130" DisplayMemberBinding="{Binding DateListed}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="ListingID" Content="Listing ID" Grid.Row="1"
+               Grid.Column="3" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="20"/>
+        <Label x:Name="ListingAddress" Content="Address" Grid.Row="1"
+               Grid.Column="4" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="20"/>
+        <Label x:Name="Price" Content="Price" Grid.Row="1"
+               Grid.Column="5" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="20"/>
+        <Label x:Name="NumOfBeds" Content="Bedrooms" Grid.Row="1"
+               Grid.Column="6" HorizontalContentAlignment="Center"
+               VerticalContentAlignment="Center" FontSize="20"/>
+        <Button x:Name="btnShowListings" Content="Show Listing" 
+                Background="#9DFF0D" Grid.Column="1" Grid.Row="2" FontSize="19" Click="btnShowListings_Click"/>
+        <Button x:Name="btnAddListing" Content="Add Listing" 
+                Background="#9DFF0D" Grid.Column="2" Grid.Row="2" FontSize="19" Click="btnAddListing_Click"/>
+        <Button x:Name="btnEditListing" Content="Edit Listing" Background="#9DFF0D" 
+                Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" FontSize="19" Click="btnEditListing_Click"/>
+        <TextBox x:Name="TextBoxListingID" Grid.Row="2" Grid.Column="3" />
+        <TextBox x:Name="TextBoxListingAddress" Grid.Row="2" Grid.Column="4" />
+        <TextBox x:Name="TextBoxListingPrice" Grid.Row="2" Grid.Column="5" />
+        <TextBox x:Name="TextBoxBedrooms" Grid.Row="2" Grid.Column="6" />
+
+    </Grid>
+</Window>
